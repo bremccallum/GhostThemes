@@ -1,0 +1,15 @@
+{{!< layout}}
+
+
+{{#post}}
+
+<header class="clearfix">
+    <h1>{{title}}</h1>
+        <div class="author-bio">
+            <img class="pull-left" src="{{author.image}}" alt="">
+            {{author.bio}}
+        </div>
+        <h2><small>by</small> <a href="{{email}}"></a>{{author.name}}</h2>
+</header>
+
+{{/post}}

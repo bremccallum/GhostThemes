@@ -1,0 +1,29 @@
+{{!< default}}
+{{> header}}
+   <main class="main-folio" role="main">
+
+    {{#foreach posts}}
+       <article class="article-folio" role="article" itemscope itemtype="http://schema.org/Article">
+            <header class="postheader-folio">
+                <time class="date-folio" datetime="{{date format="YYYY MM DD"}}" itemprop="datePublished">{{date format='dddd DD MMM YYYY'}}</time>
+                <h1 class="posttitle-folio" itemprop="headline"><a href="{{{url}}}" rel="bookmark">{{title}}</a></h1>
+            </header>
+            <div class="postcontent-folio" itemprop="articleBody">
+               {{excerpt words="50"}}
+            </div>                
+                {{#if tags}}
+                    <div class="posttags-folio">
+                        Tags: {{tags separator=" | "}}
+                    </div>
+                {{/if}}
+        </article>
+    {{/foreach}}
+    
+    {{#if pagination}}
+        <div class="pagination-folio">
+           {{{pagination}}}
+        </div>    
+    {{/if}}
+    
+    </main>
+{{> footer}}

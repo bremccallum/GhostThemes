@@ -1,0 +1,48 @@
+{{!< default}}
+{{> header}}
+    <main class="main-folio" role="main">
+        {{#post}}
+            <article class="article-folio" role="article" itemscope itemtype="http://schema.org/Article">
+                <header class="postheader-folio">
+                    <time class="date-folio" datetime="{{date format="YYYY MM DD"}}" itemprop="datePublished">{{date format='dddd DD MMM YYYY'}}</time>
+                    <h1 class="posttitle-folio" itemprop="headline">{{title}}</h1>
+                </header>
+                <div class="postcontent-folio" itemprop="articleBody">
+                    {{content}}
+                </div>
+                {{#if tags}}
+                    <div class="posttags-folio">
+                        Tags: {{tags separator=" | "}}
+                    </div>
+                {{/if}}
+                <div class="sharepost-folio">
+                    <h4 class="share-folio">Share this post: &nbsp;</h4>
+                    <a class="share-folio icon-twitter" target="_blank" href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}"><span class="hidethis-folio">Twitter</span></a>
+                    <a class="share-folio icon-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u={{url absolute="true"}}"><span class="hidethis-folio">Facebook</span></a>
+                    <a class="share-folio icon-gplus" target="_blank" href="https://plus.google.com/share?url={{url absolute="true"}}"><span class="hidethis-folio">Google+</span></a>
+                </div>
+                {{#if author}}
+                    <footer class="postfooter-folio">
+                        <address itemscope itemtype="http://schema.org/Person">
+                            {{#if author.image}}
+                            <div class="authorimage-folio"><img src="{{author.image}}" itemprop="image"></div>
+                            {{/if}}
+                            <h4 class="authorname-folio"><span itemprop="author">{{author.name}}</span></h4>
+                            {{#if author.website}}
+                                <div class="authorwebsite-folio"><a href="{{author.website}}" itemprop="url">{{author.website}}</a></div>
+                            {{/if}}
+                        </address>
+                        <div class="authorbio-folio">
+                            <p class="authorbio-folio">{{author.bio}}</p>
+                        </div>
+                    </footer>
+                {{/if}}
+            </article>
+        {{/post}}
+        {{#if pagination}}
+            <div class="pagination-folio">
+                {{{pagination}}}
+            </div>
+        {{/if}}
+    </main>
+{{> footer}}

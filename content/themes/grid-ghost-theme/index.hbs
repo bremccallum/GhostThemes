@@ -1,0 +1,38 @@
+{{!< layout}}   
+
+<header class="site-head" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+    <div class="container">
+        <div class="site-head-content inner">
+            {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
+            <h1 class="blog-title">{{@blog.title}}</h1>
+            <h2 class="blog-description">{{@blog.description}}</h2>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="row services">
+            <img class="col-xs-8 col-xs-offset-2 col-sm-2 col-sm-offset-1" src="{{asset 'img/service-vectors-02.svg'}}" alt="">
+            <img class="col-xs-8 col-xs-offset-2 col-sm-2 col-sm-offset-2" src="{{asset 'img/service-vectors-03.svg'}}" alt="">
+            <img class="col-xs-8 col-xs-offset-2 col-sm-2 col-sm-offset-2" src="{{asset 'img/service-vectors-04.svg'}}" alt="">
+    </section>
+    
+    {{#foreach posts}}
+    <article class="row">
+            {{content words = "0"}}
+        <div class="col-sm-3">
+            <h2><a href="{{url}}">{{title}}</a><small> by {{author}}</small></h2>
+            <footer>
+                <small>
+                    {{tags prefix="Tagged with: " separator=" | "}}
+                </small>
+                <small class="pull-right">
+                    Published on {{date format="YYYY-MM-DD"}}
+                </small>
+            </footer>
+        </div>
+    </article>
+    {{/foreach}}
+    
+</main>
+<footer></footer>
